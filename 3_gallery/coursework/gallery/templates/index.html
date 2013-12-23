@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block menu %}
+
+<li class="active"><a href="/">Load image</a></li>
+<li><a href="/gallery">Gallery</a></li>
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to the Gallery!</h1>
+<p>You can upload your image here</p>
+
+<form role="form" enctype="multipart/form-data" method="POST">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" placeholder="Title" maxlength
+="150" name="title">
+    </div>
+    <div class="form-group">
+        <label for="InputFile">Image input</label>
+        <input type="file" id="File" name="image">
+        <p class="help-block">Load: jpg, jpeg, gif, png, bmp</p>
+    </div>
+    <div class="form-group">
+        <label for="dsc">Discription</label>
+        <input type="text" class="form-control" id="dsc" placeholder="dsc" maxlength
+="250" name="dsc">
+    </div>
+    <button type="submit" class="btn btn-primary">Load</button>
+</form>
+
+{% endblock %}

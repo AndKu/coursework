@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block menu %}
+
+<li><a href="/">Load image</a></li>
+<li class="active"><a href="/gallery">Gallery</a></li>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    {% for image in images %}
+    <div class="col-md-6">
+        <a href="#" class="thumbnail">
+            <img data-src="holder.js/100%x180" src="{{ image.get_absolute_url }}" alt="{{ image.title }}" title="{{ image.title }}" data-toggle="tooltip" data-placement="bottom" data-original-title="{{ image.dsc }}">
+        </a>
+    </div>
+    {% empty %}
+    <h1>No images in gallery.</h1>
+    {% endfor %}
+</div>
+
+{% endblock %}

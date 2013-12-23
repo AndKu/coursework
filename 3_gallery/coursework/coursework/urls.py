@@ -1,11 +1,15 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
+from django.conf import settings
 from django.contrib import admin
+from gallery.views import *
 admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+    url(r'^$', 'gallery.views.upload_image'),
+    url(r'^gallery/$', ImageList.as_view()),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     # Examples:
     # url(r'^$', 'coursework.views.home', name='home'),
     # url(r'^coursework/', include('coursework.foo.urls')),
