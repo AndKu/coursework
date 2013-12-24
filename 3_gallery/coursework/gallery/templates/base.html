@@ -3,20 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>Coursework - {% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-        <style>
-            .content{
-                margin: 0 auto;
-                width: 94%;
-            }
-            .row{
-                margin: 0;
-            }
-        </style>
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-        <script>
-            $('img[data-toggle]=tooltip').tooltip(delay: { show: 600, hide: 100 })
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" media="all" /> 
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+        <script text="text/javascript">
+             $(function () {
+                $(".thumbnail").fancybox();
+                $(".thumbnail img").tooltip({
+                    'delay': { show: 500, hide: 100 }
+                });
+            });
         </script>
     </head>
     <body>

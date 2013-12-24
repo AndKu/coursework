@@ -1,0 +1,10 @@
+.content{
+	margin: 0 auto;
+	width: 94%;
+}
+.col-md-3{
+	display: inline-block;
+	float: none;
+	vertical-align: top;
+	width: 24%;
+}

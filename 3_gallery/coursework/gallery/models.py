@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Image(models.Model):
-    title = models.CharField('Название', max_length=255)
+    title = models.CharField('Название', max_length=256)
     dsc = models.CharField('Описание', max_length=250, blank=True)
     image = models.ImageField(upload_to='gallery', null=False, blank=False)
 
@@ -11,7 +11,7 @@ class Image(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return ('image', None, {'object_id': self.id})
+        return self.image.url
 
     def save(self, force_insert=False, force_update=False, using=None):
         try:
